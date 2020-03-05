@@ -1,10 +1,7 @@
 trigger:
 - '*'
 
-pool:
-  vmImage: 'ubuntu-16.04'
-  demands:
-    - npm
+
 
 variables:
   buildConfiguration: 'Release'
@@ -12,7 +9,15 @@ variables:
 #  dotnetSdkVersion: '2.1.505'
   dotnetSdkVersion: '3.1.0'
 
-  # was: - task: DotNetCoreInstaller@0
+
+stages:
+- stage: Build
+  job: Build
+  pool:
+    vmImage: 'ubuntu-16.04'
+    demands:
+      - npm
+
 steps:
 - task: DotNetCoreInstaller@1
   displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
