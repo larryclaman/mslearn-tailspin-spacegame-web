@@ -1,6 +1,10 @@
 trigger:
 - '*'
 
+stages:
+- stage: Build
+  job: Build
+
 pool:
   vmImage: 'ubuntu-16.04'
   demands:
