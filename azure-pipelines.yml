@@ -13,7 +13,7 @@ variables:
 stages:
 - stage: Build
   jobs:
-    job: Build
+    - job: Build
     pool:
       vmImage: 'ubuntu-16.04'
       demands:
